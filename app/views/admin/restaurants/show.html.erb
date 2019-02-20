@@ -1,0 +1,35 @@
+<div class="page header">
+  <h2><%= @restaurant.name %></h2>
+  <%=
+    link_to "Delete",
+    admin_restaurant_path(@restaurant),
+    method: :delete,
+    data: { confirm: "Are you sure?" }
+  %>
+  <%=
+    link_to "Update",
+    edit_admin_restaurant_path(@restaurant)
+  %>
+</div>
+<div style="background-image: url(<%= @restaurant.img_url %>)" class="restaurant-img-full"></div>
+<div class="page">
+  <h4>Address:</h4>
+  <p><%= @restaurant.address %></p>
+  <br>
+<!--   <h4>List of reviews:</h4>
+  <%= link_to "Add Review", new_restaurant_review_path(@restaurant), class: 'btn-add-review'%>
+  <ul class="reviews-list">
+    <% @restaurant.reviews.each do |review| %>
+      <li>
+        <div class="review">
+          <div class="review-content">
+            <%= review.content %>
+          </div>
+          <div class="review-rating">
+            <p>Rating: <%= review.rating %></p>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul> -->
+</div>

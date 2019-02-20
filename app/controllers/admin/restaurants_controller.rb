@@ -1,10 +1,8 @@
-class RestaurantsController < ApplicationController
-  before_action :set_restaurant, only: [:show, :edit]
-  before_action :set_restaurants, only: [:index, :new, :edit]
+class Admin::RestaurantsController < ApplicationController
+  before_action :set_restaurant
+  before_action :set_restaurants
   def index
-  end
-
-  def show
+    @restaurants = Restaurant.all
   end
 
   def new
@@ -17,6 +15,25 @@ class RestaurantsController < ApplicationController
       redirect_to root_path
     else
       render :new
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @restaurant.update(restaurant_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    if @restaurant.destroy
+      redirect_to root_path
+    else
+      render :show
     end
   end
 

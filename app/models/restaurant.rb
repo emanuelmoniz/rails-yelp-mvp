@@ -6,7 +6,7 @@ class Restaurant < ApplicationRecord
   validates :category, inclusion: {
     in: CATEGORIES, message: CATEGORIES.join(' ').to_s
   }, presence: true
-  validates :img_url, format: {
-    with: /.(gif|jpg|png)/i, message: 'must be a URL for GIF, JPG or PNG image.'
-  }
+  # validates :img_url, format: {
+  #   with: /.(gif|jpg|png)/i, message: 'must be a URL for GIF, JPG or PNG image.'
+  # }
 end
